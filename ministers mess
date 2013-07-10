@@ -1,0 +1,86 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+void minister();
+void printArray(string [],int);
+
+  ifstream input("votes.txt");
+int main()
+{
+
+    //cout<<"hello world"<<endl;
+    //cout<<(3/2)<<endl;
+    minister();
+    minister();
+    minister();
+}
+
+void minister(){
+int N,M;
+        input>>N>>M;
+        //cout<<N<<M<<endl;
+if(M!=0){
+int N1=N+1;
+int M1=M+1;
+    string vote[M1][N1];
+    int a[M];
+    int n;
+    int k;
+    string v;
+    for(int i=0,h=1; i<M; i++,h++){
+        input>>n;
+        a[i]=n;
+        //cout<<n;
+        for(int j=0; j<n; j++){
+                input>>k;
+            input>>vote[h][k];
+        }}
+    string R[N];
+    int z=0;
+    for(int x=1,y=1,i=0; y<=N; y++,i++){
+        if(vote[x][y]==vote[x+1][y]){
+            if(vote[x][y]==""&&vote[x+1][y]==""){
+            R[i]="?";
+            }
+            else {
+                R[i]=vote[x][y];
+                z++;
+            }
+        }
+        else{
+            if(vote[x][y]==""||vote[x+1][y]==""){
+                if(vote[x][y]==""){
+                R[i]=vote[x+1][y];
+                z++;}
+                else{
+                    R[i]=vote[x][y];
+                    z++;
+                }
+                }
+            else{
+                        if(vote[x][y]!=vote[x+1][y]){
+                    R[i]="?";
+                        }
+                }
+            }
+        }
+        int h1=a[0]/2;
+        int h2=a[1]/2;
+        //cout<<z<<endl;
+        if(z>=h1&&z>=h2){
+            cout<<"case 1: ";
+            printArray(R,N);
+            cout<<endl;
+        }
+        else{
+            cout<< "case: IMPOSSIBLE"<<endl;
+        }
+}
+}
+
+void printArray(string t[],int n){
+for(int i=0; i<n; i++){
+    cout<<t[i];
+}
+}
